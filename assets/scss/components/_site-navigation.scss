@@ -1,0 +1,167 @@
+@use '../utilities/mixins' as m;
+
+.site-navigation {
+    @include m.list-reset();
+
+    @include m.respond-to(lg-down) {
+        position: fixed;
+        top: m.fluid-unit(80px);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - m.fluid-unit(80px));
+        overflow-y: auto;
+        background-color: rgba(255, 255, 255, 0.99);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        border-top: 1px solid var(--wp--preset--color--brand-grey);
+    }
+
+    @include m.respond-to(lg) {
+        @include m.list-reset();
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: m.fluid-unit(20px);
+
+        &__item {
+            position: relative;
+
+            &:hover {
+                .site-navigation__sub-menu {
+                    opacity: 1;
+                    transform: translate(-50%, m.fluid-unit(0px));
+                    visibility: visible;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+
+        }
+
+        &__sub-menu {
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            border-radius: m.fluid-unit(4px);
+            z-index: 1000;
+            transition: opacity 0.3s ease, transform 0.3s ease 0.1s;
+            min-width: m.fluid-unit(150px);
+            transform: translate(-50%, m.fluid-unit(20px));
+            visibility: hidden;
+
+            .site-navigation__link {
+                display: block;
+                min-height: 0;
+                padding: m.fluid-unit(10px) m.fluid-unit(20px);
+            }
+            
+        }
+
+    }
+
+    &__sub-menu {
+        @include m.list-reset();
+        background-color: var(--wp--preset--color--brand-blue);
+        color: var(--wp--preset--color--white);
+
+        @include m.respond-to(lg-down) {
+            display: none;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        font-weight: 700;
+        color: var(--wp--preset--color--black-warm);
+
+        @include m.respond-to(lg-down) {
+            display: block;
+            padding: m.fluid-unit(24px);
+        }
+
+        @include m.respond-to(lg) {
+            display: flex;
+            align-items: center;
+        }
+
+        @include m.respond-to(lg) {
+            min-height: m.fluid-unit(80px);
+        }
+
+        &:hover {
+            color: var(--wp--preset--color--brand-red);
+        }
+        
+    }
+
+    .site-navigation__item--has-children {
+
+        @include m.respond-to(lg-down) {
+            [data-menu-toggle] {
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: m.fluid-unit(20px);
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: m.fluid-unit(20px);
+                    height: m.fluid-unit(20px);
+                    background-image: url('../images/dropdown.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                }
+
+                &.is-open {
+                    &::after {
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                    
+                    + .site-navigation__sub-menu {
+                        display: block;
+                    }
+                    
+                }
+
+            }
+        }
+
+       
+
+    }
+
+
+}
+
+body.is-scrolled {
+    .site-header {
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+        color: var(--wp--preset--color--brand-black-warm);
+
+        .site-logo {
+            &__text {
+                fill: var(--wp--preset--color--brand-black-warm);
+            }
+        }
+
+    }
+
+}
+
+@include m.respond-to(lg-down) {
+    .nav-is-open {
+        overflow: hidden;
+
+        .site-navigation {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

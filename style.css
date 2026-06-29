@@ -1,9 +1,15 @@
-/*!
-    Theme URI: https://github.com/NanoSoup
-    Theme Name:   Erebus / NanoSoup
-    Description:  Custom theme
-    Author:       NanoSoup
-    Text Domain:  nanosoup
-    Version: 1.0
-
-!*/
+/*
+Theme Name:  GAIN - Origin
+Theme URI:   https://github.com/thisisgain/Erebus
+Author:      GAIN
+Author URI:  https://thisisgain.com
+Description: A modern WordPress block theme skeleton for 2026 built on Timber, ACF, and the Block API.
+Version:     1.0.0
+Requires at least: 6.4
+Tested up to: 7.0
+Requires PHP: 8.4
+License:     GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Origin
+Tags:        block-theme, full-site-editing, accessibility-ready, custom-colors, custom-logo, editor-style, featured-images, rtl-language-support, wide-blocks
+*/

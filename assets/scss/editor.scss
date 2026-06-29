@@ -1,0 +1,35 @@
+// src/scss/editor.scss
+// Loaded in the editor iframe via add_editor_style().
+// Do NOT import main.scss here — WP injects theme.json styles separately.
+// Only include editor-specific overrides.
+
+@use 'components/box';
+
+// Ensure editor body matches front-end padding
+.editor-styles-wrapper {
+  padding: var(--wp--preset--spacing--l) !important;
+}
+
+// Fix heading colours in the editor (sometimes overridden by editor chrome)
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2 {
+  color: var(--wp--preset--color--brand-primary);
+}
+
+// Show placeholder text in a subtle style
+[data-rich-text-placeholder]::after {
+  opacity: 0.4;
+}
+
+.editor-visual-editor__post-title-wrapper {
+  background: var(--wp--preset--color--brand-red-background-light);
+  margin: calc(-1 * var(--wp--preset--spacing--l)) !important;
+  margin-bottom: calc(2 * var(--wp--preset--spacing--l)) !important;
+  padding: var(--wp--preset--spacing--l) !important;
+
+  h1 {
+    font-size: var(--wp--preset--font-size--heading-lg) !important;
+  }
+
+}
+

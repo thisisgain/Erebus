@@ -1,0 +1,98 @@
+
+// Global CSS variables for Vaccination UK theme
+
+@use '../utilities/mixins' as m;
+
+/**
+ * 
+ * @description This file is used to define global CSS variables for the Vaccination UK theme.
+ * Global variables are defined in theme.json and can be accessed using var(--wp--preset--).
+ * Overrides can be defined here for specific breakpoints.
+
+ */
+
+
+/**
+ * @palette
+ * var(--wp--preset--color--brand-red) = #E2231A
+ * var(--wp--preset--color--brand-red-background-light) = #FAEFEF
+ * var(--wp--preset--color--brand-blue) = #213163
+ * var(--wp--preset--color--brand-grey) = #F0EFEF
+ * var(--wp--preset--color--brand-black) = #000000
+ * var(--wp--preset--color--brand-black-warm) = #3A2E2E
+ * var(--wp--preset--color--brand-white) = #FFFFFF
+ * Custom Colours - Not user Selectable in CMS
+ * var(--wp--custom--color--brand-red-background) = #F6E5E5
+ * var(--wp--custom--color--brand-red-dark) = #BD1D1D
+ * var(--wp--custom--color--brand-blue-ocean) = #58929C
+ * var(--wp--custom--color--brand-grey-dark) = #D6D6D6
+*/
+
+/**
+ * @font-familes
+ * var(--wp--preset--font-family--brand-primary) = "Bodoni Moda", 'Georgia', serif
+ * var(--wp--preset--font-family--brand-secondary) = "Lato", Tahoma, sans-serif
+*/
+
+/**
+ * @font-sizes
+ * var(--wp--preset--font-size--sm) = 0.875rem = 14px
+ * var(--wp--preset--font-size--base) = 1rem = 16px
+ * var(--wp--preset--font-size--lg) = 1.125rem = 18px
+ * var(--wp--preset--font-size--xl) = 1.25rem = 20px
+ * var(--wp--preset--font-size--heading-sm) = 1.25rem = 20px
+ * var(--wp--preset--font-size--heading-md) = 2rem = 32px
+ * var(--wp--preset--font-size--heading-lg) = 3rem = 48px
+ * var(--wp--preset--font-size--heading-xl) = 3.5rem = 56px
+ * var(--wp--preset--font-size--heading-2xl) = 4rem = 64px
+ * Custom Font Sizes - Not user Selectable in CMS
+ * var(--wp--custom--font-size--button) = 0.9375rem = 15px
+*/
+
+/**
+ * @spacing
+ * var(--wp--preset--spacing--2xs) = 0.625rem = 10px
+ * var(--wp--preset--spacing--xs) = 0.75rem = 12px
+ * var(--wp--preset--spacing--s) = 1rem = 16px
+ * var(--wp--preset--spacing--m) = 1.25rem = 20px
+ * var(--wp--preset--spacing--l) = 1.5rem = 24px
+ * var(--wp--preset--spacing--xl) = 1.875rem = 30px
+ * var(--wp--preset--spacing--2-xl) = 2rem = 32px
+ * var(--wp--preset--spacing--3-xl) = 2.5rem = 40px
+ * var(--wp--preset--spacing--4-xl) = 3.125rem = 50px
+ * var(--wp--preset--spacing--5-xl) = 3.5rem = 56px
+ * var(--wp--preset--spacing--6-xl) = 4rem = 64px
+ * var(--wp--preset--spacing--7-xl) = 5rem = 80px
+ * var(--wp--preset--spacing--8-xl) = 6.25rem = 100px
+ * var(--wp--preset--spacing--9-xl) = 7.5rem = 120px
+*/
+
+/**
+ * @border-radius
+ * var(--wp--custom--border--radius-sm) = 4px
+ * var(--wp--custom--border--radius-md) = 12px
+ * var(--wp--custom--border--radius-lg) = 15px
+ * var(--wp--custom--border--radius-full) = 9999px
+*/
+
+/**
+ * @line-height
+ * var(--wp--custom--typography--line-height--tight) = 1.1
+ * var(--wp--custom--typography--line-height--normal) = 1.5
+ * var(--wp--custom--typography--line-height--loose) = 2
+*/
+
+:root {
+
+    @include m.respond-to(md) {
+        --wp--preset--font-size--lg: 1.25rem; /* 20px */
+        --wp--preset--font-size--xl: 1.5rem; /* 24px */
+        --wp--preset--font-size--heading-sm: 1.75rem; /* 28px */
+        --wp--preset--font-size--heading-md: 2.5rem; /* 40px */
+        --wp--preset--font-size--heading-lg: 3.5rem; /* 56px */  
+        --wp--preset--font-size--heading-xl: 4rem; /* 64px */
+        --wp--preset--font-size--heading-2-xl: 4.5rem; /* 72px */
+    }
+
+}
+

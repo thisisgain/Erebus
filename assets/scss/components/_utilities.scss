@@ -1,0 +1,37 @@
+// src/scss/components/_utilities.scss
+// Utility classes for one-off spacing/display overrides.
+
+@use '../utilities/mixins' as m;
+
+.visually-hidden {
+  @include m.visually-hidden;
+}
+
+.truncate     { @include m.truncate(1); }
+.truncate-2   { @include m.truncate(2); }
+.truncate-3   { @include m.truncate(3); }
+
+
+.show {
+    
+    &-sm {
+        display: none;
+        @include m.respond-to(sm-down) {
+            display: block;
+        }
+    }
+
+    &-md {
+        display: none;
+        @include m.respond-to(md-down) {
+            display: block;
+        }
+    }
+
+    &-lg {
+        display: none;
+        @include m.respond-to(lg-down) {
+            display: block;
+        }
+    }
+}

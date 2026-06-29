@@ -1,0 +1,30 @@
+// src/scss/main.scss
+// Global front-end stylesheet. Compiled to public/css/style.[hash].css
+
+// ── UTILITIES (variables, functions, mixins) ─────────────────────────────────
+@use 'utilities/tokens'     as *;
+@use 'utilities/mixins'     as *;
+@use 'utilities/reset'      as *;
+
+// ── SETTINGS ───────────────────────────────────────────────────────────────
+@use 'settings/variables';
+
+// ── COMPONENTS ───────────────────────────────────────────────────────────────
+@use 'components/container';
+@use 'components/site-header';
+@use 'components/site-navigation';
+@use 'components/buttons';
+@use 'components/box';
+@use 'components/forms';
+@use 'components/typography';
+@use 'components/site-footer';
+@use 'components/grid';
+@use 'components/hero';
+@use 'components/utilities';
+
+// ── BLOCK OVERRIDES ──────────────────────────────────────────────────────────
+// Global style overrides for core blocks that can't be handled in theme.json
+// (e.g. when you need nth-child selectors, complex :has() rules, etc.)
+@use 'blocks/block-styles';
+@use 'blocks/core-overrides';
+@use 'settings/page-transitions';

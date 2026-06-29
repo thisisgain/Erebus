@@ -1,1 +1,59 @@
+<header class="site-header">
 
+    <div class="site-header__container container">
+        
+        {# Logo #}
+        <a 
+            href="{{ 
+                fn(
+                    'apply_filters',
+                    'wpml_home_url',
+                    fn('get_option', 'home')
+                )
+            }}" 
+            aria-label="{{ __('Home', 'vaccination-uk') }}"
+        >
+            {% if site.header.headerlogo %}
+                {{ site.header.headerlogo }}
+            {% endif %}
+        </a>
+
+        {# Navigation #}
+        {% if menus.primary %}
+        <nav class="site-header__nav">
+            <ul class="site-navigation">
+                {% for item in menus.primary.items %}
+                    <li class="site-navigation__item{% if item.children %} site-navigation__item--has-children{% endif %}">
+                        <a {% if item.children %}data-menu-toggle aria-expanded="false" aria-controls="menu-sub-{{item.ID}}" id="menu-parent-{{item.ID}}" {% endif %} class="site-navigation__link" href="{{ item.url }}">{{ item.title }}</a>
+                        {% if item.children %}
+                            <ul class="site-navigation__sub-menu" aria-labelledby="menu-parent-{{item.ID}}">
+                                {% for child in item.children %}
+                                    <li class="site-navigation__item">
+                                        <a class="site-navigation__link" href="{{ child.url }}">{{ child.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% endif %}
+
+        <div class="site-header__actions">
+
+            <div class="show-lg">
+                <button class="site-header__toggle" data-nav-toggle>
+                    <span class="visually-hidden">{{ __('Toggle menu', 'vaccination-uk') }}</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</header>

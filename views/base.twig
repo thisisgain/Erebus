@@ -1,40 +1,33 @@
+{#
+  views/base.twig — Base layout. Extended by page-specific templates.
+  Not used for block/FSE templates (those use /templates/*.html).
+#}
 <!DOCTYPE html>
-<html class="no-js no-touchevents" {{ site.language_attributes }}>
-	<head>
-		{% block head %}
-			<meta charset="{{ site.charset }}"/>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
-			<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-			<link rel="manifest" href="/site.webmanifest">
-			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
-			<meta name="msapplication-TileColor" content="#ffffff">
-			<meta name="theme-color" content="#ffffff">
+<html class="no-js no-touchevents" lang="{{ language }}">
+<head>
+  {% block head %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-			{{ function('wp_head') }}
-		{% endblock %}
-	</head>
-	<body {{ function('body_class') }} data-template="views/base.twig">
-		{% block body %}
-			{% block header %}
-				{% include 'views/partials/header.twig' %}
-			{% endblock %}
-			<div class="site-wrapper">
-				{% block main %}
-					<main class="site-content" id="content">
-						{% block content %}
-							Sorry, no content
-						{% endblock %}
-					</main>
-				{% endblock %}
-				{% block footer %}
-					{% include 'views/partials/footer.twig' %}
-				{% endblock %}
-			</div>
-			{{ function('wp_footer') }}
-		{% endblock %}
-	</body>
+  <link rel="icon" type="image/png" href="{{ theme.link }}/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="{{ theme.link }}/favicon.svg" />
+  <link rel="shortcut icon" href="{{ theme.link }}/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ theme.link }}/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Vaccination UK" />
+  <link rel="manifest" href="{{ theme.link }}/site.webmanifest" />
+
+  {% endblock %}
+  {% do fn('wp_head') %}
+</head>
+<body class="{{ body_class }}">
+  {% do fn('wp_body_open') %}
+  {% block header %}
+    {% include 'views/partials/header.twig' %}
+  {% endblock %}
+  {% block content %}{% endblock %}
+  {% block footer %}
+    {% include 'views/partials/footer.twig' %}
+  {% endblock %}
+  {% do fn('wp_footer') %}
+</body>
 </html>

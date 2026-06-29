@@ -1,0 +1,119 @@
+@use '../utilities/mixins' as m;
+@use '../utilities/tokens' as t;
+
+/**
+ * Grid
+ * In designs there is a 6 col grid on mobile
+ * just double up the values from design to keep 12 col consistent across breakpoints
+ */
+
+$num-grid-col: 12;
+
+.grid {
+    display: grid;
+    grid-gap: m.fluid-unit(16);
+    grid-template-columns: repeat(#{$num-grid-col}, 1fr);
+}
+
+@media (min-width: t.$bp-sm) {
+    .sm\:grid {
+        display: grid;
+        grid-gap: m.fluid-unit(16);
+        grid-template-columns: repeat(#{$num-grid-col}, 1fr);
+    }
+}
+
+@media (min-width: t.$bp-md) {
+    .md\:grid {
+        display: grid;
+        grid-gap: m.fluid-unit(16);
+        grid-template-columns: repeat(#{$num-grid-col}, 1fr);
+    }
+}
+
+@media (min-width: t.$bp-lg) {
+    .lg\:grid {
+        display: grid;
+        grid-gap: m.fluid-unit(16);
+        grid-template-columns: repeat(#{$num-grid-col}, 1fr);
+    }
+}
+
+/**
+ * Columns
+ * col-span-x
+ * col-span-full
+ * col-start-x
+ * col-end-x
+ */
+
+/**
+    <div class="row">
+        <div class="col-span-6 col-start-2 md:col-span-full"></div>
+    </div>
+*/
+
+.col-span-full {
+    grid-column: 1 / -1;
+}
+
+@for $i from 1 through $num-grid-col {
+    .col-span-#{$i} {
+        grid-column: span #{$i} / span #{$i};
+    }
+
+    .col-start-#{$i} {
+        grid-column-start: #{$i};
+    }
+
+    .col-end-#{$i} {
+        grid-column-end: #{$i};
+    }
+}
+
+$grid_breakpoints: (
+    sm: t.$bp-sm,
+    md: t.$bp-md,
+    lg: t.$bp-lg,
+);
+
+@each $name, $width in $grid_breakpoints {
+    @media (min-width: $width) {
+        @for $i from 1 through $num-grid-col {
+            .#{$name}\:col-span-#{$i} {
+                grid-column: span #{$i} / span #{$i};
+            }
+        }
+    }
+}
+
+@each $name, $width in $grid_breakpoints {
+    @media (min-width: $width) {
+        @for $i from 1 through $num-grid-col {
+            .#{$name}\:col-start-#{$i} {
+                grid-column-start: #{$i};
+            }
+
+            .#{$name}\:col-end-#{$i} {
+                grid-column-end: #{$i};
+            }
+        }
+    }
+}
+
+
+/**
+* Alignment
+*/
+
+.grid-align-center {
+    align-items: center;
+}
+
+.grid-align-start {
+    align-items: start;
+}
+
+.grid-align-end {
+    align-items: end;
+}

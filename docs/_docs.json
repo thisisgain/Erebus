@@ -1,0 +1,7 @@
+[
+  { "file": "01-getting-started", "label": "Getting Started",  "icon": "lightbulb" },
+  { "file": "02-configuration",   "label": "Configuration",    "icon": "admin-settings" },
+  { "file": "03-blocks",          "label": "Blocks",           "icon": "block-default" },
+  { "file": "04-templates",       "label": "Templates",        "icon": "layout" },
+  { "file": "05-changelog",       "label": "Changelog",        "icon": "backup" }
+]

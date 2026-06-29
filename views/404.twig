@@ -1,15 +1,73 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    <section class="c-intro-content content-section u-bg-white u-border-bottom">
-        <div class="intro-content container container--small">
-            <div class="intro-content__content u-text-center">
-                <h6 class="intro-content__subtitle">Page not found – 404 error</h6>
-                <h1 class="intro-content__title">Oops, we’ve got our wires crossed.</h1>
-                <h4 class="u-color-prussian-blue">The page you’re looking for couldn’t be found.</h4>
-                <a href="/" class="button">Go Home</a>
-            </div>
+
+<style>
+    .error-404 {
+        background-color: var(--wp--preset--color--brand-red);
+        color: var(--wp--preset--color--brand-white);
+        padding: 8rem 0;
+    }
+
+    .error-404 .container {
+        width: 50rem;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+   .error-404__subtitle {
+        font-size: var(--wp--preset--font-size--heading-md);
+        font-family: var(--wp--preset--font-family--brand-primary);
+        margin: 0;
+        font-weight: 400;
+        margin-bottom: 2rem;
+   }
+
+    .error-404__title {
+        font-size: 7.5rem;
+        line-height: 1;
+        margin: 0;
+    }
+
+    .error-404__message {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        font-weight: 300;
+        margin-bottom: 3rem;
+    }
+
+    .error-404__btn {
+        background-color: var(--wp--preset--color--brand-blue);
+        color: var(--wp--preset--color--brand-white);
+    }
+
+    .error-404__btn:hover {
+        background-color: var(--wp--preset--color--brand-black-warm);
+    }
+
+
+</style>
+
+<section class="error-404">
+    <div class="container">
+        <h1 class="error-404__title">{{ __('404', 'vaccination-uk') }}</h1>
+        <h2 class="error-404__subtitle">{{ __('Page not found', 'vaccination-uk') }}</h2>
+
+        <p class="error-404__message">{{ __('The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'vaccination-uk') }}</p>
+        <div class="error-404__actions">
+            <a class="btn error-404__btn" href="{{ 
+                fn(
+                    'apply_filters',
+                    'wpml_home_url',
+                    fn('get_option', 'home')
+                )
+            }}">{{ __('Go Home', 'vaccination-uk') }}</a>
         </div>
-    </section>
-    {{ function('apply_filters', 'the_content', post.post_content) }}
+    </div>
+</section>
+
 {% endblock %}

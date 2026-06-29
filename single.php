@@ -1,14 +1,22 @@
 <?php
 
-use {{ SITE_NAMESPACE }}\Kernel;
-use {{ SITE_NAMESPACE }}\Wordpress\SingleController;
+use Origin\Kernel;
+use Origin\WordPress\SingleController;
 use Timber\Timber;
 
 $action = Kernel::getAction(get_post_type());
-
 try {
-    $context = SingleController::$action();
-    Timber::render($context['templates'], $context['context']);
+
+    $controller = new SingleController();
+    
+    if( method_exists($controller,$action) ) {
+        $context = SingleController::$action();
+        Timber::render($context['templates'], $context['context']);
+    } else {
+        $context = SingleController::defaultAction();
+        Timber::render($context['templates'], $context['context']);
+    }
+   
 } catch (Exception $e) {
-    echo 'Caught exception: ', $e->getMessage(), "\n";
+    locate_template('404.php'); 
 }
