@@ -1,0 +1,38 @@
+@view-transition {
+  navigation: auto;
+}
+
+// @media screen and (prefers-reduced-motion: no-preference) {
+//     ::view-transition-old(root) {
+//         animation: page-out cubic-bezier(0.72, 0.01, 0, 1) .7s
+//     }
+
+//     ::view-transition-new(root) {
+//         animation: page-in cubic-bezier(0.72, 0.01, 0, 1) .7s;
+//         z-index: 1
+//     }
+// }
+
+// @keyframes page-out {
+//     from {
+//         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+//         transform: translateX(0)
+//     }
+
+//     to {
+//         clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+//         transform: translateX(-20%)
+//     }
+// }
+
+// @keyframes page-in {
+//     from {
+//         clip-path: polygon(80% 0, 100% 0, 100% 100%, 80% 100%);
+//         transform: translateX(20%)
+//     }
+
+//     to {
+//         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+//         transform: translateX(0)
+//     }
+// }

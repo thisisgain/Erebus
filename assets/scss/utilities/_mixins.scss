@@ -1,0 +1,66 @@
+// src/scss/utilities/_mixins.scss
+
+@use 'sass:math';
+@use 'tokens' as t;
+
+// ── RESPONSIVE ───────────────────────────────────────────────────────────────
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm'  { @media (min-width: #{t.$bp-sm})  { @content; } }
+  @else if $breakpoint == 'sm-down'  { @media (max-width: #{t.$bp-sm - 1px})  { @content; } }
+  @else if $breakpoint == 'md'  { @media (min-width: #{t.$bp-md})  { @content; } }
+  @else if $breakpoint == 'md-down'  { @media (max-width: #{t.$bp-md - 1px})  { @content; } }
+  @else if $breakpoint == 'lg'  { @media (min-width: #{t.$bp-lg})  { @content; } }
+  @else if $breakpoint == 'lg-down'  { @media (max-width: #{t.$bp-lg - 1px})  { @content; } }
+  @else if $breakpoint == 'xl'  { @media (min-width: #{t.$bp-xl})  { @content; } }
+}
+
+// ── FOCUS RING (WCAG AA) ─────────────────────────────────────────────────────
+@mixin focus-ring($color: var(--wp--preset--color--brand-accent)) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 3px;
+  }
+}
+
+// ── VISUALLY HIDDEN (ACCESSIBLE) ─────────────────────────────────────────────
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// ── TRUNCATE TEXT ────────────────────────────────────────────────────────────
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// ── LIST RESET ───────────────────────────────────────────────────────────────
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+@function fluid-unit($pixel_value) {
+  @return math.div(strip-unit($pixel_value), strip-unit(t.$base-font-size)) * 1rem;
+}

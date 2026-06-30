@@ -1,0 +1,33 @@
+// src/scss/components/_forms.scss
+// Base form control styles.
+
+@use '../utilities/mixins' as m;
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: var(--wp--preset--font-size--base);
+  color: var(--wp--preset--color--neutral-700);
+  background: var(--wp--preset--color--white);
+  border: var(--wp--custom--border--width--normal) solid var(--wp--preset--color--neutral-300);
+  border-radius: var(--wp--custom--border--radius--sm);
+  padding: 0.625rem 0.875rem;
+  width: 100%;
+  transition: border-color var(--wp--custom--transition--fast);
+
+  @include m.focus-ring;
+
+  &:focus {
+    border-color: var(--wp--preset--color--brand-accent);
+    outline: none;
+  }
+}
+
+label {
+  display: block;
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+  color: var(--wp--preset--color--neutral-700);
+}

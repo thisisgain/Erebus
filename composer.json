@@ -1,20 +1,33 @@
 {
-    "name": "eleven-miles/erebus",
-    "description": "A starter theme for Wordpress sites built with Mimir",
-    "type": "wordpress-theme",
-    "require": {
-        "php": ">=8.2"
-    },
-    "license": "Unlicense",
-    "authors": [
-        {
-            "name": "Eleven Miles",
-            "email": "dev@elevenmiles.com"
-        }
-    ],
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
+  "name": "gain/origin-theme",
+  "description": "Modern WordPress block theme with Timber and ACF",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.4",
+    "composer/installers": "^2.0",
+    "symfony/var-dumper": "^7.4",
+    "timber/timber": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Origin\\": [
+        "classes",
+        "controllers"
+      ]
     }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$vendor}/{$name}/": ["type:wordpress-plugin"]
+    }
+  }
 }

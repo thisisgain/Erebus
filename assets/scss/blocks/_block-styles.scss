@@ -1,0 +1,9 @@
+.is-style-rounded-corners {
+    border-radius: var(--wp--custom--border--radius--md);
+    overflow: hidden;
+
+    a {
+        display: block;
+    }
+
+}

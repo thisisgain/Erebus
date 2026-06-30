@@ -1,0 +1,34 @@
+// src/scss/components/_typography.scss
+
+
+.has-sm-font-size {}
+
+.has-base-font-size {}
+
+.has-lg-font-size {}
+
+.has-xl-font-size {
+  line-height: var(--wp--custom--typography--line-height--snug);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--relaxed);
+}
+
+.has-heading-sm-font-size {
+
+}
+
+.has-heading-md-font-size {
+  line-height: var(--wp--custom--typography--line-height--tight);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--tight);
+}
+
+.has-heading-lg-font-size {
+  line-height: var(--wp--custom--typography--line-height--tight);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--tight);
+}
+
+.has-heading-xl-font-size {}
+
+.has-heading-2-xl-font-size {
+  line-height: var(--wp--custom--typography--line-height--tight);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--snug);
+}

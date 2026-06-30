@@ -1,0 +1,71 @@
+// src/scss/components/_buttons.scss
+// Base button styles that extend the theme.json button element styles.
+// theme.json handles primary colour — this file adds structure + variants.
+
+@use '../utilities/mixins' as m;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--wp--preset--font-family--brand-sans);
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 600;
+  letter-spacing: var(--wp--custom--typography--letter-spacing--wide);
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--wp--custom--border--radius--sm);
+  cursor: pointer;
+  transition: background-color var(--wp--custom--transition--normal),
+              color var(--wp--custom--transition--normal),
+              border-color var(--wp--custom--transition--normal);
+
+  @include m.focus-ring;
+
+  // ── VARIANTS ──────────────────────────────────────────────────────────────
+
+  &--primary {
+    background: var(--wp--preset--color--brand-accent);
+    color: var(--wp--preset--color--white);
+
+    &:hover {
+      background: var(--wp--preset--color--brand-primary);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: var(--wp--preset--color--brand-primary);
+    border-color: var(--wp--preset--color--brand-primary);
+
+    &:hover {
+      background: var(--wp--preset--color--brand-primary);
+      color: var(--wp--preset--color--white);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--wp--preset--color--white);
+    border-color: var(--wp--preset--color--white);
+
+    &:hover {
+      background: var(--wp--preset--color--white);
+      color: var(--wp--preset--color--brand-primary);
+    }
+  }
+
+  // ── SIZES ─────────────────────────────────────────────────────────────────
+
+  &--sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--wp--preset--font-size--xs);
+  }
+
+  &--lg {
+    padding: 1rem 2rem;
+    font-size: var(--wp--preset--font-size--base);
+  }
+}

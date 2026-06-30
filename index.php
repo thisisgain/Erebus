@@ -1,7 +1,7 @@
 <?php
 
 use Timber\Timber;
-use {{ SITE_NAMESPACE }}\IndexController;
+use Origin\WordPress\IndexController;
 
 $page = IndexController::indexAction();
 

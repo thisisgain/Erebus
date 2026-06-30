@@ -1,0 +1,36 @@
+@use '../utilities/mixins' as m;
+
+.hero {
+    min-height: m.fluid-unit(440px);
+}
+
+@include m.respond-to(lg) {
+
+    .site-header:has(+ .hero) {
+        background-color: transparent;
+        margin-bottom: m.fluid-unit(-80px);
+        color: white;
+    
+
+        .site-logo__text {
+            fill: white;
+        }
+
+        .site-header__toggle {
+            path {
+                stroke: white;
+            }
+        }
+
+    }
+
+    .site-header {
+
+        + .hero {
+            padding-top: m.fluid-unit(80px);
+            
+        }
+
+    }
+
+}

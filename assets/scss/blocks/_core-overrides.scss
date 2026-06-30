@@ -1,0 +1,35 @@
+// src/scss/blocks/_core-overrides.scss
+// Global overrides for core blocks that theme.json styles cannot target.
+// Only add rules here that genuinely require CSS selectors unsupported
+// by theme.json (e.g. :nth-child, :has, complex combinators).
+
+// ── GALLERY ──────────────────────────────────────────────────────────────────
+.wp-block-gallery {
+  gap: var(--wp--preset--spacing--s);
+}
+
+// ── COVER ────────────────────────────────────────────────────────────────────
+// .wp-block-cover {
+//   min-height: 400px;
+// }
+
+// ── GROUP – FULL-WIDTH SECTION PADDING ───────────────────────────────────────
+.wp-block-group.is-layout-constrained > .wp-block-group__inner-container {
+  padding-inline: var(--wp--preset--spacing--l);
+}
+
+// ── TABLE ────────────────────────────────────────────────────────────────────
+.wp-block-table {
+  td, th {
+    padding: var(--wp--preset--spacing--s) var(--wp--preset--spacing--m);
+  }
+
+  thead {
+    background: var(--wp--preset--color--neutral-100);
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--wp--preset--color--neutral-100);
+  }
+}

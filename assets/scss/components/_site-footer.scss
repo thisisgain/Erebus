@@ -1,0 +1,104 @@
+@use '../utilities/mixins' as m;
+
+.site-footer {
+    background-color: var(--wp--preset--color--brand-blue);
+    color: var(--wp--preset--color--white);
+    padding: {
+        top: var(--wp--preset--spacing--5-xl);
+        bottom: var(--wp--preset--spacing--3-xl);
+    }
+    font-weight: 300;
+
+    .site-logo {
+        height: m.fluid-unit(48px);
+        margin-bottom: m.fluid-unit(20px);
+
+        &__icon {
+            fill: var(--wp--preset--color--brand-red);
+        }
+        
+        &__text {
+            fill: var(--wp--preset--color--white);
+        }
+
+    }
+
+    &__address {
+        font-style: normal;
+        margin: 0;
+    }
+
+    &__text {
+        margin: 0;
+    }
+
+    &__divider {
+        margin: m.fluid-unit(56px) 0 m.fluid-unit(40px) 0;
+        border-color: rgba(var(--wp--preset--color--white), 0.2);
+        border-width: 1px 0 0 0;
+    }
+
+    &__social {
+        @include m.list-reset();
+        display: flex;
+        gap: m.fluid-unit(16px);
+        align-items: center;
+
+        @include m.respond-to(sm) {
+            justify-content: flex-end;
+        }
+        
+        img {
+            height: m.fluid-unit(32px);
+            opacity: 0.8;
+            
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        a {
+            font-size: m.fluid-unit(20px);
+            display: flex;
+            align-items: center;
+            gap: m.fluid-unit(8px);
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+                color: var(--wp--preset--color--white);
+            }
+        }
+    }
+
+    &__nav {
+
+        &-list {
+            @include m.list-reset();
+            display: flex;
+            flex-wrap: wrap;
+            gap: m.fluid-unit(10px);
+        }
+        
+        
+        &-link {
+            color: var(--wp--preset--color--white);
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+
+    &__qcq {
+        margin: m.fluid-unit(24px) auto 0 auto;
+        max-height: m.fluid-unit(80px);
+
+        @include m.respond-to(sm) {
+            margin: 0 0 0 auto;
+        }
+    }
+
+}
